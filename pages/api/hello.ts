@@ -10,5 +10,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ text: '센터라벨', centerLabel: '센터 라벨일에요' })
+  const data= req.query.customData ?? ''
+
+  res.status(200).json({ text: `채팅 메세지: 커스텀데이터: ${data}`, centerLabel: `센터 라벨입니다 ${data}` })
 }
